@@ -1,0 +1,19 @@
+{
+    "bitwise": true,            // prohibits use of bitwise operators
+    "curly": true,              // requires { } for if, else, for, etc.
+    "eqeqeq": true,             // prohibits use of == and !=
+    "esversion": 5,
+    "forin": true,              // require all for in loops to filter object's items
+    "freeze": true,             // prohibit overwriting prototypes of native objects
+    "futurehostile": true,      // enable warnings about identifiers defined in future versions of JS
+    "latedef": true,            // prohibits the use of a variable before it's defined
+    "leanswitch": true,         // prohibit unnecessary clauses in switch statements
+    "noarg": true,              // prohibits use of arguments.caller and arguments.callee
+    "nocomma": true,            // prohibits use of the comma operator
+    "nonbsp": true,             // warns about U+00A0 NO BREAK SPACE characters
+    "nonew": true,              // prohibits use of constructors entirely for side effects
+    "shadow": "outer",          // warns about variable shadowing
+    "singleGroups": true,       // prohibits unnecessary use of grouping operator
+    "strict": true,             // requires functions to run in strict mode
+    "undef": true               // prohibits use of variables not explicitly declared
+}
