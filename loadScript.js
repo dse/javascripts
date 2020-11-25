@@ -1,7 +1,10 @@
+/*global document, window */
+
 /**
  * Load a script conventionally.
  */
 function loadScript(url, options) {
+    "use strict";
     var script, prop;
     script = document.createElement('script');
     script.src = url;
@@ -19,6 +22,7 @@ function loadScript(url, options) {
  * Script must be on same domain or permitted by CORS.
  */
 function loadScriptSync(url, options) {
+    "use strict";
     var xhr = new window.XMLHttpRequest();
     xhr.open('GET', url, Boolean(options && options.async));
     if (!(options && options.noAcceptHeader)) {
