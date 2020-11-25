@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+/*global CSSStyleSheet, CSSRule, console, document */
 class StylesheetIterator {
     constructor(doc) {
         this.document = doc;

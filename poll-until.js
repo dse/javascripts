@@ -1,4 +1,6 @@
+/*global setInterval, clearInterval */
 function pollUntil(condition, callback, timeout) {
+    "use strict";
     if (!condition || !(condition instanceof Function)) {
         throw new TypeError("invalid condition");
     }
