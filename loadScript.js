@@ -19,16 +19,15 @@ function loadScript(url, options) {
  * Script must be on same domain or permitted by CORS.
  */
 function loadScriptSync(url, options) {
-    var noAcceptHeader = Boolean(options && options.noAcceptHeader);
-    var crossDomain    = Boolean(options && options.crossDomain);
     var xhr = new window.XMLHttpRequest();
-    xhr.open('GET', url, false); // third argument false means synchronous
-    if (!options.noAcceptHeader) {
+    xhr.open('GET', url, Boolean(options && options.async));
+    if (!(options && options.noAcceptHeader)) {
         xhr.setRequestHeader('Accept', 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01');
     }
-    if (!options.crossDomain) {
+    if (!(options && options.crossDomain)) {
         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); // not for cross-domain
     }
+    var callback = options && options.onload;
     xhr.onload = function () {
         if (!(xhr.status === 0 || xhr.status === 200)) {
             return;
@@ -36,6 +35,9 @@ function loadScriptSync(url, options) {
         var script = document.createElement('script');
         script.text = xhr.responseText;
         document.head.appendChild(script).parentNode.removeChild(script);
+        if (callback) {
+            callback();
+        }
     };
     xhr.send(null);
 }
