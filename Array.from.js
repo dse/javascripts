@@ -6,6 +6,7 @@
 if (!Array.from) {
     /*global Symbol */
     Array.from = (function () {
+        "use strict";
         var symbolIterator;
         try {
             symbolIterator = Symbol.iterator ? Symbol.iterator : 'Symbol(Symbol.iterator)';
