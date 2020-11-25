@@ -3,11 +3,13 @@
  * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
  * with minor modifications for code quality
  */
+/*global Element */
 if (!Element.prototype.matches) {
     Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 }
 if (!Element.prototype.closest) {
-    Element.prototype.closest = function(s) {
+    Element.prototype.closest = function (s) {
+        "use strict";
         var el = this;
         do {
             if (Element.prototype.matches.call(el, s)) {
